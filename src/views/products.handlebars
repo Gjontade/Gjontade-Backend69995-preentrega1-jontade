@@ -1,0 +1,61 @@
+<header>
+	<h1>Productos</h1>
+
+	<div class="datosPerfil">
+		<p class="card-text text-center"><strong>Bienvenido:
+			</strong> {{user.first_name}}
+			-
+			{{user.last_name}}
+		</p>
+		<p class="card-text text-center"><strong>Email:
+			</strong> {{user.email}}</p>
+		<p class="card-text text-center"><strong>Rol:
+			</strong> {{user.role}}</p>
+			<p><strong> Cart: </strong>{{user.cart}}</p>
+		<a
+			href="api/sessions/logout"
+			class="btn btn-outline-danger d-flex justify-content-center col-2 botonLogout"
+		>Logout</a>
+	</div>
+
+</header>
+
+{{#each productos}}
+	<div class="container-fluid">
+		<div class="d-flex justify-content-center">
+			<div class="card col-6">
+				<div class="card" id="contenedorProductos">
+					<h3 class="card-title text-center">{{title}}</h3>
+					<p class="card-text text-center">{{_id}}</p>
+					<p class="card-text text-center">{{description}}</p>
+					<p class="card-text text-center precio">Precio: ${{price}}</p>
+					<p class="card-text text-center">Categoria: {{category}}</p>
+					<button class="btn btn-outline-info"><a href="#">Detalle</a></button>
+					<br />
+					<button class="btn btn-outline-info">Agregar al Carrito</button>
+				</div>
+			</div>
+		</div>
+	</div>
+{{/each}}
+
+<div class="container-fluid">
+	<div class="d-flex justify-content-center">
+		{{#if hasPrevPage}}
+			<a
+				href="/products?page={{prevPage}}"
+				class="btn btn-outline-info"
+			>Anterior</a>
+		{{/if}}
+		{{#if hasNextPage}}
+			<a
+				href="/products?page={{nextPage}}"
+				class="btn btn-outline-info"
+			>Siguiente</a>
+		{{/if}}
+	</div>
+</div>
+<br />
+<div class="container-fluid d-flex justify-content-center">
+	<p>Pagina {{currentPage}} de {{totalPages}}</p>
+</div>

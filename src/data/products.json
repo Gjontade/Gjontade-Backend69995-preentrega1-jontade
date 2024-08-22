@@ -1,0 +1,202 @@
+[
+	{
+		"title": "Gabinete",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, hic.",
+		"code": "AA10",
+		"price": 20000,
+		"status": true,
+		"stock": 2,
+		"category": "componente",
+		"thumbnails": []
+	},
+	{
+		"title": "Silla Gammer",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, hic.",
+		"code": "AA11",
+		"price": 12000,
+		"status": true,
+		"stock": 3,
+		"category": "mueble",
+		"thumbnails": []
+	},
+	{
+		"title": "Pad",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, hic.",
+		"code": "AA12",
+		"price": 500,
+		"status": true,
+		"stock": 25,
+		"category": "dispositivo",
+		"thumbnails": []
+	},
+	{
+		"title": "Mando",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, hic.",
+		"code": "AA09",
+		"price": 5500,
+		"status": true,
+		"stock": 3,
+		"category": "periferico",
+		"thumbnails": []
+	},
+	{
+		"title": "Microfono",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, hic.",
+		"code": "AA08",
+		"price": 7000,
+		"status": true,
+		"stock": 1,
+		"category": "periferico",
+		"thumbnails": []
+	},
+	{
+		"title": "Celular",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, hic.",
+		"code": "AA07",
+		"price": 14000,
+		"status": true,
+		"stock": 10,
+		"category": "dispositivo",
+		"thumbnails": []
+	},
+	{
+		"title": "Teclado",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, hic.",
+		"code": "AA06",
+		"price": 1000,
+		"status": true,
+		"stock": 4,
+		"category": "periferico",
+		"thumbnails": []
+	},
+	{
+		"title": "Auriculares Inalambricos",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, hic.",
+		"code": "AA04",
+		"price": 1500,
+		"status": true,
+		"stock": 7,
+		"category": "periferico",
+		"thumbnails": []
+	},
+	{
+		"title": "Mouse",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, hic.",
+		"code": "AA03",
+		"price": 2500,
+		"status": true,
+		"stock": 2,
+		"category": "periferico",
+		"thumbnails": []
+	},
+	{
+		"title": "Monitor",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, hic.",
+		"code": "AA01",
+		"price": 10000,
+		"status": true,
+		"stock": 10,
+		"category": "periferico",
+		"thumbnails": []
+	},
+	{
+		"title": "Tarjeta Gráfica",
+		"description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+		"code": "BB20",
+		"price": 50000,
+		"status": true,
+		"stock": 5,
+		"category": "componente",
+		"thumbnails": []
+	},
+	{
+		"title": "Procesador",
+		"description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+		"code": "CC30",
+		"price": 30000,
+		"status": true,
+		"stock": 3,
+		"category": "componente",
+		"thumbnails": []
+	},
+	{
+		"title": "Placa Madre",
+		"description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+		"code": "DD40",
+		"price": 15000,
+		"status": true,
+		"stock": 4,
+		"category": "componente",
+		"thumbnails": []
+	},
+	{
+		"title": "Memoria RAM",
+		"description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"code": "EE50",
+		"price": 10000,
+		"status": true,
+		"stock": 10,
+		"category": "componente",
+		"thumbnails": []
+	},
+	{
+		"title": "Disco Duro SSD",
+		"description": "Aliquam erat volutpat. Integer vitae augue non mauris feugiat tincidunt.",
+		"code": "FF60",
+		"price": 25000,
+		"status": true,
+		"stock": 6,
+		"category": "componente",
+		"thumbnails": []
+	},
+	{
+		"title": "Fuente de Poder",
+		"description": "Nullam ac urna eu felis dapibus condimentum sit amet a augue.",
+		"code": "GG70",
+		"price": 12000,
+		"status": true,
+		"stock": 8,
+		"category": "componente",
+		"thumbnails": []
+	},
+	{
+		"title": "Monitor",
+		"description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+		"code": "HH80",
+		"price": 35000,
+		"status": true,
+		"stock": 7,
+		"category": "periférico",
+		"thumbnails": []
+	},
+	{
+		"title": "Teclado Mecánico",
+		"description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
+		"code": "II90",
+		"price": 8000,
+		"status": true,
+		"stock": 12,
+		"category": "periférico",
+		"thumbnails": []
+	},
+	{
+		"title": "Pen Drive",
+		"description": "Quisque ut dolor gravida, placerat libero vel, euismod.",
+		"code": "JJ100",
+		"price": 1000,
+		"status": true,
+		"stock": 15,
+		"category": "periférico",
+		"thumbnails": []
+	},
+	{
+		"title": "Escritorio",
+		"description": "Quisque ut dolor gravida, placerat libero vel, euismod.",
+		"code": "kk200",
+		"price": 35000,
+		"status": true,
+		"stock": 12,
+		"category": "mueble",
+		"thumbnails": []
+	}
+]
