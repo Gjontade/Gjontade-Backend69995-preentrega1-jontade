@@ -4,6 +4,9 @@ import UserModel from "../dao/models/user.model.js";
 import {createHash, isValidPassword} from "../utils/hashbcrypt.js";
 import passport from "passport";
 import jwt from "jsonwebtoken";
+// import CartManager from "../dao/fs/cartManager.js";
+import CartManager from "../dao/db/cartManager.db.js";
+import CartModel from "../dao/fs/data/cart.model.js";
 
 // Registro:
 router.post(
@@ -26,7 +29,7 @@ router.post(
 
 			// Genera el Token de JWT:
 			const token = jwt.sign(
-				{usuario: req.user.first_name, rol: req.user.role},
+				{_id: req.user._id, usuario: req.user.first_name, rol: req.user.role},
 				"coderhouse",
 				{expiresIn: "1h"}
 			);
@@ -37,7 +40,7 @@ router.post(
 				httpOnly: true, // Accesible mediante peticion HTTP.
 			});
 
-			res.redirect("/profile"); // Current
+			res.redirect("/api/sessions/current"); // Current
 		} catch (error) {
 			console.error("Error durante el registro: ", error);
 			res.redirect("/failedregister");
@@ -76,11 +79,29 @@ router.get("/faillogin", (req, res) => {
 
 // Logout:
 router.get("/logout", (req, res) => {
-	if (req.session.login) {
-		req.session.destroy();
-	}
+	// if (req.session.login) {
+	req.session.destroy((err) => {
+		if(err) {
+			console.error("Error al destruir la sesion.", err);
+		}
+	});
+	// }
+	res.clearCookie("coderCookieToken")
 	res.redirect("/login");
 });
+
+// Ruta Current:
+router.get(
+	"/current",
+	passport.authenticate("jwt", {session: false}),
+	(req, res) => {
+		if (req.user) {
+			res.render("home", {usuario: req.user.usuario});
+		} else {
+			res.status(401).send("No autorizado.");
+		}
+	}
+);
 
 // Login a partir de GitHub:
 router.get(

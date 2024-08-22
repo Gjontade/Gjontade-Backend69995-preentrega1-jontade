@@ -1,5 +1,15 @@
-<h1>Mi perfil</h1>
-<p>Bienvenido: {{user.first_name}} - {{user.last_name}} </p>
-<p>Email: {{user.email}} </p>
-<p>Edad: {{user.age}} </p>
-<a href="/api/sessions/logout">Logout</a>
+<h1>-MI PERFIL-</h1>
+
+<div class="datosPerfil">
+	<p class="card-text text-center">Bienvenido:
+		{{user.first_name}}
+		-
+		{{user.last_name}}
+	</p>
+	<p class="card-text text-center">Email: {{user.email}} </p>
+	<p class="card-text text-center">Edad: {{user.age}} </p>
+	<a
+		href="api/sessions/logout"
+		class="btn btn-outline-danger d-flex justify-content-center col-2 botonLogout"
+	>Logout</a>
+</div>

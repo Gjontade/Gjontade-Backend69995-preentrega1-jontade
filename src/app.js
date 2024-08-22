@@ -35,8 +35,8 @@ app.use(
 );
 
 // Cambios con passport:
-app.use(passport.session());
 app.use(passport.initialize());
+app.use(passport.session());
 initializePassport();
 
 // Configuracion Express-Handlebars:
@@ -93,15 +93,3 @@ io.on("connection", async (socket) => {
 		io.sockets.emit("productos", await productManager.getProducts());
 	});
 });
-
-/* TAREAS A COMPLETAR:
-CREAR UN LOGIN CON JWT:
-1) INSTALAR 'npm i jsonwebtoken'.
-2) IMPORTAR 'import jwt from jsonwebtoken'.
-3) 
-
-
-const patronCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-const patronTelefono = /\(\d{3}\) \d{3}-\d{4}/;
-*/

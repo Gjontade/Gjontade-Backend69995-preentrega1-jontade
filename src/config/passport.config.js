@@ -5,7 +5,7 @@ import local from "passport-local";
 import UserModel from "../dao/models/user.model.js";
 import {createHash, isValidPassword} from "../utils/hashbcrypt.js";
 import CartManager from "../dao/db/cartManager.db.js";
-const cartManager = new CartManager()
+const cartManager = new CartManager();
 // import CartModel from "../dao/fs/data/cart.model.js";
 // Estrategia local
 const LocalStrategy = local.Strategy;
@@ -19,14 +19,15 @@ const JWTStrategy = jwt.Strategy;
 const ExtractJwt = jwt.ExtractJwt;
 
 const initializePassport = () => {
-	const cookieExtractor = req => {
+	// Extrae el token JWT desde las cookies:
+	const cookieExtractor = (req) => {
 		let token = null;
 
-		if(req && req.cookies) {
+		if (req && req.cookies) {
 			token = req.cookies["coderCookieToken"];
-		} return token;
-	}
-
+		}
+		return token;
+	};
 	// Se crea la primer estrategia para "register":
 	passport.use(
 		"register",
@@ -42,13 +43,16 @@ const initializePassport = () => {
 					// Verifica si ya existe un registro con ese mail (si no existe, crea uno):
 					let user = await UserModel.findOne({email: email});
 					if (user) return done(null, false);
+
+					const cart = await cartManager.crearCarrito();
+
 					let newUser = {
 						first_name,
 						last_name,
 						email,
 						age,
 						password: createHash(password),
-						cartId: await cartManager.crearCarrito(),
+						cart: cart._id,
 					};
 
 					let result = await UserModel.create(newUser);
@@ -97,16 +101,26 @@ const initializePassport = () => {
 	});
 
 	// Estrategia JWT:
-	passport.use("jwt", new JWTStrategy({
-		jwtFromRequest: ExtractJwt.fromExtractors([cookieExtractor]),
-		secretOrKey: "coderhouse"
-	}, async (jwt_payload, done) => {
-		try {
-			return done(null, jwt_payload);
-		} catch (error) {
-			return done(error)
-		}
-	}))
+	passport.use(
+		"jwt",
+		new JWTStrategy(
+			{
+				jwtFromRequest: ExtractJwt.fromExtractors([cookieExtractor]),
+				secretOrKey: "coderhouse",
+			},
+			async (jwt_payload, done) => {
+				try {
+					const user = await UserModel.findById(jwt_payload._id);
+					if (!user) {
+						return done(null, false); // Usuario no encontrado.
+					}
+					return done(null, jwt_payload);
+				} catch (error) {
+					return done(error);
+				}
+			}
+		)
+	);
 
 	// Autenticacion de GitHub:
 	passport.use(
@@ -131,7 +145,7 @@ const initializePassport = () => {
 							email: profile._json.email || `${profile.username}@github.com`, // Genera un email si falta
 							age: 18,
 							password: "",
-							provider: "Github"
+							provider: "Github",
 						};
 
 						// Luego se crea como documento:
@@ -156,7 +170,7 @@ const initializePassport = () => {
 				clientSecret: "f1743a21ccb4e7b32bc7ad27d53b424d",
 				callbackURL:
 					"http://localhost:8080/api/sessions/auth/facebook/callback",
-				profileFields: ['id', 'emails', 'name']
+				profileFields: ["id", "emails", "name"],
 			},
 			async (accesToken, refreshToken, profile, done) => {
 				//console.log("Profile: ", profile);

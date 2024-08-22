@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
 			return !this.provider;
 		}, // password requerido solo si no es un registro OAuth
 	},
-	Cart: {
+	cart: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "Cart",
 	},
